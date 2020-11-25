@@ -195,7 +195,7 @@
                       }
 
                       if(settings.showTitle && $item.attr('data-title')) {
-                        galleryHtml += '<span class="lightboxgallery-image-title">'+ $item.attr('data-title') +'</span>';
+                        galleryHtml += '<a class="lightboxgallery-image-title" href="'+$item.attr('data-link')+'">'+ $item.attr('data-title') +'</a>';
                       }
 
                       if(settings.showDescription && $item.attr('data-desc')) {
