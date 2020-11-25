@@ -1,5 +1,7 @@
 // out: style.css
 
+@mainColor: silver;
+
 html {
   body {
     div {
@@ -8,6 +10,32 @@ html {
         div {
           &.alert {
             margin-top: 15px;
+          }
+        }
+        div {
+          &.movie {
+            display: inline-block;
+            background: linear-gradient(90deg, white, @mainColor, white) !important;
+            border: none;
+            width: 100%;
+            margin-bottom: 1vw;
+            padding: 1vw;
+            font-size: 2vw;
+            div {
+              img {
+                height: 15vw;
+                cursor: pointer;
+                @media (max-width: 992px) {
+                   height: auto;
+                   width: 80vw;
+                   margin-left: auto;
+                   margin-right: auto;
+                }
+              }
+              span {
+                display: block;
+              }
+            }
           }
         }
       }

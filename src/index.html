@@ -35,14 +35,16 @@
         </div>
         <div class="container">
             <div class="lightboxgallery-gallery clearfix">
-                <a ng-repeat="movie in MovieData.Search | limitTo: 3" class="lightboxgallery-gallery-item" target="_blank" ng-href="{{ movie.Poster }}" data-title="{{ movie.Title }}" data-link="http://www.imdb.com/title/{{ movie.imdbID }}" data-alt="{{ movie.Title }}">
-                    <div class="col-md-4">
-                        <img ng-src="{{ movie.Poster }}" title="{{ movie.Title }}" alt="{{ movie.Title }}">
-                        <div class="lightboxgallery-gallery-item-content">
-                            <span class="lightboxgallery-gallery-item-title">{{ movie.Title }}</span>
-                        </div>
+                <div ng-repeat="movie in MovieData.Search | limitTo: 5" class="movie lightboxgallery-gallery-item" target="_blank" ng-href="{{ movie.Poster }}" data-title="{{ movie.Title }}" data-link="http://www.imdb.com/title/{{ movie.imdbID }}" data-alt="{{ movie.Title }}">
+                    <div class="col-md-2">
+                        <img ng-src="{{ movie.Poster }}" title="{{ movie.Title }}" on-error-src="assets/images/image-not-available.jpg">
                     </div>
-                </a>
+                    <div class="col-md-10">
+                        <span><strong>Title:</strong> {{ movie.Title }}</span>
+                        <span><strong>Year:</strong> {{ movie.Year }}</span>
+                        <span><strong>Rest:</strong> {{ movie }}</span>
+                    </div>
+                </div>
             </div>
         </div>
         <script src="assets/js/script.js"></script>

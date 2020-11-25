@@ -1,9 +1,9 @@
 /* jshint esversion: 6 */
 
 const apiKey = "a49b5dfb";
+var myApp = angular.module("MovieApp", []);
 
-angular.module("MovieApp", [])
-    .controller("MovieAppCtrl",
+myApp.controller("MovieAppCtrl",
         [
             "$http", "$scope",
             ($http, $scope) => {
@@ -12,8 +12,8 @@ angular.module("MovieApp", [])
                 $scope.GetMoviesData = () => {
                     try {
                         $http({
-                            url: "http://www.omdbapi.com/?apikey=" + apiKey + "&s=" + $scope.Search,
-                            method: "GET",
+                            url: "http://www.omdbapi.com/?apikey=" + apiKey + "&s=" + $scope.Search + "&type=movie&r=json",
+                            method: "GET"
                         }).then(
                             (payload) => {
                                 $scope.MovieData = payload.data;
@@ -30,6 +30,14 @@ angular.module("MovieApp", [])
         ]
     );
 
-angular.element(() => {
-    angular.bootstrap(document, ["MovieApp"]);
+myApp.directive("onErrorSrc", () => {
+    return {
+        link: (scope, element, attrs) => {
+            element.bind("error", () => {
+                if (attrs.src != attrs.onErrorSrc) {
+                    attrs.$set("src", attrs.onErrorSrc);
+                }
+            });
+        }
+    };
 });
