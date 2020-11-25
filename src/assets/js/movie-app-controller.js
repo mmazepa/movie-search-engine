@@ -2,17 +2,17 @@
 
 const apiKey = "a49b5dfb";
 
-angular.module('MovieApp', [])
+angular.module("MovieApp", [])
     .controller("MovieAppCtrl",
         [
-            '$http', '$scope',
+            "$http", "$scope",
             ($http, $scope) => {
                 $scope.Search = null;
                 $scope.MovieData = [];
                 $scope.GetMoviesData = () => {
                     try {
                         $http({
-                            url: 'http://www.omdbapi.com/?apikey=' + apiKey + '&s=' + $scope.Search,
+                            url: "http://www.omdbapi.com/?apikey=" + apiKey + "&s=" + $scope.Search,
                             method: "GET",
                         }).then(
                             (payload) => {

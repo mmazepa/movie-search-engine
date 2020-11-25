@@ -71,7 +71,7 @@
               event.preventDefault();
               that.close();
             }
-          })
+        });
 
           this.navPrev.on('click', function(event) {
             event.preventDefault();
@@ -85,14 +85,14 @@
               height: dimension.height
             });
           });
-        }
+      };
 
         this.modal = function() {
           $('<div id="lightboxgallery-modal" class="lightboxgallery-modal-wrapper"><a href="#" class="lightboxgallery-prev"><span></span></a><a href="#" class="lightboxgallery-next"><span></span></a><div class="lightboxgallery-modal"><a href="#" class="lightboxgallery-close lightboxgallery-hidden">&times;</a><div class="lightboxgallery-modal-body"></div></div></div>').appendTo($('body').addClass('lightboxgallery-modal-open'));
           this.modal = $('#lightboxgallery-modal');
           this.navNext = this.modal.find('.lightboxgallery-next');
           this.navPrev = this.modal.find('.lightboxgallery-prev');
-        }
+      };
 
         this.close = function() {
           this.index = 0;
@@ -109,9 +109,9 @@
             height: 100
           }, 300, function() {
             $(this).remove();
-            $('body').removeClass('lightboxgallery-modal-open')
+            $('body').removeClass('lightboxgallery-modal-open');
           });
-        }
+      };
 
         // Resize modal window
         this.resize = function() {
@@ -136,8 +136,8 @@
           return {
             'width': width,
             'height': height
-          }
-        }
+        };
+      };
 
         // Go to next
         this.next = function() {
@@ -147,7 +147,7 @@
             this.index = 0;
           }
           this.goto(this.index);
-        }
+      };
 
         // Go to Prev
         this.prev = function() {
@@ -157,7 +157,7 @@
             this.index = this.count;
           }
           this.goto(this.index);
-        }
+      };
 
         // Go to index
         this.goto = function(index) {
@@ -195,7 +195,7 @@
                       }
 
                       if(settings.showTitle && $item.attr('data-title')) {
-                        galleryHtml += '<a class="lightboxgallery-image-title" href="'+$item.attr('data-link')+'">'+ $item.attr('data-title') +'</a>';
+                        galleryHtml += '<span class="lightboxgallery-image-title">'+ $item.attr('data-title') +'</span>';
                       }
 
                       if(settings.showDescription && $item.attr('data-desc')) {
@@ -206,7 +206,7 @@
                     }
                   }
 
-                  galleryHtml += '</div>'
+                  galleryHtml += '</div>';
 
                   $('.lightboxgallery-modal-body').html(galleryHtml);
                   that.modal.find('.lightboxgallery-close').removeClass('lightboxgallery-hidden');
@@ -216,12 +216,12 @@
               }
             });
           }
-        }
+      };
 
-      }
+  };
 
       new lightboxgallery().init();
     });
-  }
+};
 
 })(jQuery);

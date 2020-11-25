@@ -21,7 +21,9 @@
             <div class="row">
                 <div class="form-group">
                     <div class="col-sm-4">
-                        <input type="name" class="form-control" placeholder="Enter movie title..." ng-model="Search">
+                        <input type="name" class="form-control" placeholder="Enter movie name" ng-model="Search" ng-keyup="GetMoviesData()">
+                    </div>
+                    <div class="col-sm-4">
                         <button type="submit" class="btn btn-default" ng-click="GetMoviesData()">Submit</button>
                     </div>
                 </div>
@@ -29,7 +31,7 @@
         </div>
         <div class="container">
             <div class="lightboxgallery-gallery clearfix">
-                <a ng-repeat="movie in MovieData.Search | limitTo: 3" class="lightboxgallery-gallery-item" target="_blank" href="#" data-title="This will be title" data-link="http://www.imdb.com/title/" data-alt="This will be title">
+                <a ng-repeat="movie in MovieData.Search | limitTo: 3" class="lightboxgallery-gallery-item" target="_blank" ng-href="{{ movie.Poster }}" data-title="{{ movie.Title }}" data-link="http://www.imdb.com/title/{{ movie.imdbID }}" data-alt="{{ movie.Title }}">
                     <div class="col-md-4">
                         <img ng-src="{{ movie.Poster }}" title="{{ movie.Title }}" alt="{{ movie.Title }}">
                         <div class="lightboxgallery-gallery-item-content">
