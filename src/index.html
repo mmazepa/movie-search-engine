@@ -28,6 +28,10 @@
                     </div>
                 </div>
             </div>
+            <div ng-hide="MovieData.Search && MovieData.Search.Response !== 'True'" class="col-md-4 alert alert-info">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                <strong>Info!</strong> No movie found.
+            </div>
         </div>
         <div class="container">
             <div class="lightboxgallery-gallery clearfix">

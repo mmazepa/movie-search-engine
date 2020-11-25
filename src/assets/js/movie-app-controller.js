@@ -29,3 +29,7 @@ angular.module("MovieApp", [])
             }
         ]
     );
+
+angular.element(() => {
+    angular.bootstrap(document, ["MovieApp"]);
+});

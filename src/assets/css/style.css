@@ -1,3 +1,6 @@
 html body div.container {
   margin-top: 15px;
 }
+html body div.container div.alert {
+  margin-top: 15px;
+}
