@@ -1,33 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="MovieApp">
     <head>
         <meta charset="utf-8" />
         <title>Movie Search Engine</title>
         <link rel="stylesheet" href="assets/css/style.css">
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+        <script src="assets/js/movie-app-controller.js"></script>
+
         <!-- Lightbox Gallery v1.0 -->
         <link rel="stylesheet" href="assets/lightboxgallery/lightboxgallery-min.css">
         <script src="assets/lightboxgallery/lightboxjs-custom.js"></script>
     </head>
-    <body>
+    <body ng-controller="MovieAppCtrl">
         <div class="container">
             <h3>Movie Search Engine</h3>
             <div class="row">
                 <div class="form-group">
                     <div class="col-sm-4">
-                        <input type="name" class="form-control" placeholder="Enter movie title...">
+                        <input type="name" class="form-control" placeholder="Enter movie title..." ng-model="Search">
+                        <button type="submit" class="btn btn-default" ng-click="GetMoviesData()">Submit</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="lightboxgallery-gallery clearfix">
-                <a class="lightboxgallery-gallery-item" target="_blank" href="#" data-title="This will be title" data-link="http://www.imdb.com/title/" data-alt="This will be title">
+                <a ng-repeat="movie in MovieData.Search | limitTo: 3" class="lightboxgallery-gallery-item" target="_blank" href="#" data-title="This will be title" data-link="http://www.imdb.com/title/" data-alt="This will be title">
                     <div class="col-md-4">
-                        <img src="Movie poster" title="This will be title" alt="This will be title">
+                        <img ng-src="{{ movie.Poster }}" title="{{ movie.Title }}" alt="{{ movie.Title }}">
                         <div class="lightboxgallery-gallery-item-content">
-                            <span class="lightboxgallery-gallery-item-title">This will be title</span>
+                            <span class="lightboxgallery-gallery-item-title">{{ movie.Title }}</span>
                         </div>
                     </div>
                 </a>
