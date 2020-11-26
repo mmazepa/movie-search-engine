@@ -32,13 +32,12 @@
         </div>
         <div class="container">
             <div>
-                <div ng-repeat="movie in MovieData.Search | limitTo: 5" class="movie" target="_blank" ng-href="{{ movie.Poster }}" data-title="{{ movie.Title }}" data-link="http://www.imdb.com/title/{{ movie.imdbID }}" data-alt="{{ movie.Title }}">
+                <div ng-repeat="movie in MovieData.Search" class="movie" target="_blank" ng-href="{{ movie.Poster }}" data-title="{{ movie.Title }}" data-link="http://www.imdb.com/title/{{ movie.imdbID }}" data-alt="{{ movie.Title }}">
                     <div class="col-md-2">
                         <img ng-src="{{ movie.Poster }}" title="{{ movie.Title }}" on-error-src="assets/images/image-not-available.jpg">
                     </div>
                     <div class="col-md-10">
-                        <span><strong>Title:</strong> {{ movie.Title }}</span>
-                        <span><strong>Year:</strong> {{ movie.Year }}</span>
+                        <span>{{ movie.Title }} ({{ movie.Year }})</span>
                         <button class="btn btn-primary" onclick="getModal(this)" ng-click="GetMovieData(movie.imdbID)">
                             Click here for more info...
                         </button>
@@ -66,8 +65,9 @@
                             {{ SingleMovieData.Actors }}
                             <a ng-href="https://www.imdb.com/title/{{ SingleMovieData.imdbID }}/fullcredits">See full cast & crew »</a>
                         </span>
-                        <span><strong>Awards:</strong> {{ SingleMovieData.Awards }}</span>
                         <span><strong>Country:</strong> {{ SingleMovieData.Country }}</span>
+                        <span><strong>Language:</strong> {{ SingleMovieData.Language }}</span>
+                        <span><strong>Awards:</strong> {{ SingleMovieData.Awards }}</span>
                     </div>
                 </div>
             </div>
