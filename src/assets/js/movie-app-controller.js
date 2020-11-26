@@ -17,6 +17,12 @@ myApp.controller("MovieAppCtrl",
                 $scope.GetMovieData = (movieId) => {
                     getResults($http, $scope, "single", generalLink + "&i=" + movieId + "&r=json");
                 };
+                $scope.prepareValue = (value) => {
+                    return prepareValue(value);
+                };
+                $scope.prepareValueForStyle = (value) => {
+                    return { "width" : prepareValue(value) + "%" };
+                };
             }
         ]
     );
@@ -52,4 +58,15 @@ const getResults = ($http, $scope, type, link) => {
     } catch (error) {
         alert("Exception occured while fetching movie data.\n\n" + error);
     }
+};
+
+const prepareValue = (value) => {
+    var num = 1;
+    if (value.includes("%"))
+        value = value.substring(0, value.length - 1);
+    else if (value.includes("/"))
+        if (value.split("/")[1] === "10")
+            num = 10;
+        value = parseFloat(value.split("/")[0])*num;
+    return value;
 };

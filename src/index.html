@@ -18,27 +18,46 @@
             <div class="row">
                 <div class="form-group">
                     <div class="col-sm-4">
-                        <input type="name" class="form-control" placeholder="Enter movie name" ng-model="Search" ng-keyup="GetMoviesData()">
+                        <input type="name"
+                               class="form-control"
+                               placeholder="Enter movie name"
+                               ng-model="Search"
+                               ng-keyup="GetMoviesData()">
                     </div>
                     <div class="col-sm-4">
-                        <button type="submit" class="btn btn-default" ng-click="GetMoviesData()">Submit</button>
+                        <button type="submit"
+                                class="btn btn-default"
+                                ng-click="GetMoviesData()">
+                            Submit
+                        </button>
                     </div>
                 </div>
             </div>
-            <div ng-hide="MovieData.Search && MovieData.Search.Response !== 'True'" class="col-md-4 alert alert-info">
+            <div ng-hide="MovieData.Search && MovieData.Search.Response !== 'True'"
+                 class="col-md-4 alert alert-info">
                 <span class="glyphicon glyphicon-info-sign"></span>
                 <strong>Info!</strong> No movie found.
             </div>
         </div>
         <div class="container">
             <div>
-                <div ng-repeat="movie in MovieData.Search" class="movie" target="_blank" ng-href="{{ movie.Poster }}" data-title="{{ movie.Title }}" data-link="http://www.imdb.com/title/{{ movie.imdbID }}" data-alt="{{ movie.Title }}">
+                <div ng-repeat="movie in MovieData.Search"
+                     class="movie"
+                     target="_blank"
+                     ng-href="{{ movie.Poster }}"
+                     data-title="{{ movie.Title }}"
+                     data-link="http://www.imdb.com/title/{{ movie.imdbID }}"
+                     data-alt="{{ movie.Title }}">
                     <div class="col-md-2">
-                        <img ng-src="{{ movie.Poster }}" title="{{ movie.Title }}" on-error-src="assets/images/image-not-available.jpg">
+                        <img ng-src="{{ movie.Poster }}"
+                             title="{{ movie.Title }}"
+                             on-error-src="assets/images/image-not-available.jpg">
                     </div>
                     <div class="col-md-10">
                         <span>{{ movie.Title }} ({{ movie.Year }})</span>
-                        <button class="btn btn-primary" onclick="getModal(this)" ng-click="GetMovieData(movie.imdbID)">
+                        <button class="btn btn-primary"
+                                onclick="getModal(this)"
+                                ng-click="GetMovieData(movie.imdbID)">
                             Click here for more info...
                         </button>
                     </div>
@@ -50,11 +69,15 @@
                 <div class="modal-header">
                     <span class="close">&times;</span>
                     <h2>{{ SingleMovieData.Title }} ({{ SingleMovieData.Year }})</h2>
-                    <span>{{ SingleMovieData.Runtime }} | {{ SingleMovieData.Genre }} | {{ SingleMovieData.Released }}</span>
+                    <span>
+                        {{ SingleMovieData.Runtime }} | {{ SingleMovieData.Genre }} | {{ SingleMovieData.Released }}
+                    </span>
                 </div>
                 <div class="container modal-body">
                     <div class="col-md-3">
-                        <img ng-src="{{ SingleMovieData.Poster }}" title="{{ SingleMovieData.Title }}" on-error-src="assets/images/image-not-available.jpg">
+                        <img ng-src="{{ SingleMovieData.Poster }}"
+                             title="{{ SingleMovieData.Title }}"
+                             on-error-src="assets/images/image-not-available.jpg">
                     </div>
                     <div class="col-md-7">
                         <span class="plot">{{ SingleMovieData.Plot }}</span>
@@ -63,11 +86,28 @@
                         <span>
                             <strong>Stars:</strong>
                             {{ SingleMovieData.Actors }}
-                            <a ng-href="https://www.imdb.com/title/{{ SingleMovieData.imdbID }}/fullcredits">See full cast & crew »</a>
+                            <a ng-href="https://www.imdb.com/title/{{ SingleMovieData.imdbID }}/fullcredits">
+                                See full cast & crew »
+                            </a>
                         </span>
                         <span><strong>Country:</strong> {{ SingleMovieData.Country }}</span>
                         <span><strong>Language:</strong> {{ SingleMovieData.Language }}</span>
                         <span><strong>Awards:</strong> {{ SingleMovieData.Awards }}</span>
+                        <span>
+                            <span ng-repeat="rating in SingleMovieData.Ratings">
+                                <strong>{{ rating.Source }}:</strong> {{ rating.Value }}
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-success progress-bar-striped"
+                                         role="progressbar"
+                                         aria-valuenow="{{ prepareValue(rating.Value) }}"
+                                         aria-valuemin="0"
+                                         aria-valuemax="100"
+                                         ng-style="prepareValueForStyle(rating.Value)">
+                                        {{ prepareValue(rating.Value) }}%
+                                    </div>
+                                </div>
+                            </span>
+                        </span>
                     </div>
                 </div>
             </div>
