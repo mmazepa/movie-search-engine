@@ -28,3 +28,6 @@ html body div.container div.movie div img {
 html body div.container div.movie div span {
   display: block;
 }
+html body div.container div.movie div button {
+  margin-top: 15px;
+}

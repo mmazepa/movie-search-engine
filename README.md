@@ -19,10 +19,7 @@ Simple movie search engine using [OMDb API](http://www.omdbapi.com).
 **Features:**
 * searching for movies,
 * displaying movie details,
-* written according to RWD practices,
-* using [Lightbox Gallery v1.0](https://github.com/kawshar/lightboxgallery):
-  * Copyright 2017 Kawshar Ahmed,
-  * [Licensed GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html).
+* written according to RWD practices.
 
 ## Technologies
 
