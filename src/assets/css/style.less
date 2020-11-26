@@ -7,6 +7,23 @@
 html {
   body {
     div {
+      &.header {
+        background: linear-gradient(90deg, darken(@modalColor1, 15%), darken(@modalColor2, 15%));
+        color: whitesmoke;
+        margin: 0 !important;
+        width: 100%;
+        padding: 10px;
+        overflow-x: hidden;
+        border-bottom: 3px solid darken(@mainColor, 15%);
+        input {
+          height: 70px;
+          font-size: 28px;
+          background-color: lighten(@mainColor, 10%);
+          &:focus {
+            background-color: whitesmoke;
+          }
+        }
+      }
       &.container {
         margin-top: 15px;
         div {
@@ -42,6 +59,11 @@ html {
               }
               button {
                 margin-top: 15px;
+                width: 50vw;
+                font-size: 24px;
+                span {
+                  display: inline;
+                }
               }
             }
           }
