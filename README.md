@@ -3,7 +3,6 @@
 ![HTML5](https://img.shields.io/badge/HTML-HTML5-blue)
 ![CSS](https://img.shields.io/badge/CSS-CSS3+Less-blue)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-blue)
-![JavaScript](https://img.shields.io/badge/jQuery-3.2.1-blue)
 ![AngularJS](https://img.shields.io/badge/AngularJS-1.6.9-blue)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-3.3.7-blue)
 
@@ -25,7 +24,7 @@ Simple movie search engine using [OMDb API](http://www.omdbapi.com).
 
 * static pages made with **HTML5**,
 * stylesheets made with **CSS3** and supported by **Less** and **Bootstrap**,
-* scripts written in **JavaScript** and **jQuery** according to the **ES6** standard.
+* scripts written in **JavaScript** according to the **ES6** standard.
 * framework **AngularJS** - simple SPA (Single Page Application).
 
 ## Setup

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="MovieApp">
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charset="utf-8" />
         <title>Movie Search Engine</title>
         <link rel="stylesheet" href="assets/css/style.css">
@@ -38,11 +39,39 @@
                     <div class="col-md-10">
                         <span><strong>Title:</strong> {{ movie.Title }}</span>
                         <span><strong>Year:</strong> {{ movie.Year }}</span>
-                        <button class="btn btn-primary">Click here for more info...</button>
+                        <button class="btn btn-primary" onclick="getModal(this)" ng-click="GetMovieData(movie.imdbID)">
+                            Click here for more info...
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
-        <script src="assets/js/script.js"></script>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>{{ SingleMovieData.Title }} ({{ SingleMovieData.Year }})</h2>
+                    <span>{{ SingleMovieData.Runtime }} | {{ SingleMovieData.Genre }} | {{ SingleMovieData.Released }}</span>
+                </div>
+                <div class="container modal-body">
+                    <div class="col-md-3">
+                        <img ng-src="{{ SingleMovieData.Poster }}" title="{{ SingleMovieData.Title }}" on-error-src="assets/images/image-not-available.jpg">
+                    </div>
+                    <div class="col-md-7">
+                        <span class="plot">{{ SingleMovieData.Plot }}</span>
+                        <span><strong>Director:</strong> {{ SingleMovieData.Director }}</span>
+                        <span><strong>Writer:</strong> {{ SingleMovieData.Writer }}</span>
+                        <span>
+                            <strong>Stars:</strong>
+                            {{ SingleMovieData.Actors }}
+                            <a ng-href="https://www.imdb.com/title/{{ SingleMovieData.imdbID }}/fullcredits">See full cast & crew »</a>
+                        </span>
+                        <span><strong>Awards:</strong> {{ SingleMovieData.Awards }}</span>
+                        <span><strong>Country:</strong> {{ SingleMovieData.Country }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="assets/js/modal.js"></script>
     </body>
 </html>

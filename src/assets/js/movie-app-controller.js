@@ -1,6 +1,7 @@
 /* jshint esversion: 6 */
 
 const apiKey = "a49b5dfb";
+const generalLink = "http://www.omdbapi.com/?apikey=" + apiKey;
 var myApp = angular.module("MovieApp", []);
 
 myApp.controller("MovieAppCtrl",
@@ -9,22 +10,12 @@ myApp.controller("MovieAppCtrl",
             ($http, $scope) => {
                 $scope.Search = null;
                 $scope.MovieData = [];
+                $scope.SingleMovieData = [];
                 $scope.GetMoviesData = () => {
-                    try {
-                        $http({
-                            url: "http://www.omdbapi.com/?apikey=" + apiKey + "&s=" + $scope.Search + "&type=movie&r=json",
-                            method: "GET"
-                        }).then(
-                            (payload) => {
-                                $scope.MovieData = payload.data;
-                            },
-                            () => {
-                                alert("Something is wrong. Please try again.");
-                            }
-                        );
-                    } catch (error) {
-                        alert("Exception occured while fetching movie data.");
-                    }
+                    getResults($http, $scope, "multiple", generalLink + "&s=" + $scope.Search + "&type=movie&r=json");
+                };
+                $scope.GetMovieData = (movieId) => {
+                    getResults($http, $scope, "single", generalLink + "&i=" + movieId + "&r=json");
                 };
             }
         ]
@@ -41,3 +32,24 @@ myApp.directive("onErrorSrc", () => {
         }
     };
 });
+
+const getResults = ($http, $scope, type, link) => {
+    try {
+        $http({
+            url: link,
+            method: "GET"
+        }).then(
+            (payload) => {
+                if (type === "multiple")
+                    $scope.MovieData = payload.data;
+                else if (type === "single")
+                    $scope.SingleMovieData = payload.data;
+            },
+            () => {
+                alert("Something is wrong. Please try again.");
+            }
+        );
+    } catch (error) {
+        alert("Exception occured while fetching movie data.\n\n" + error);
+    }
+};
