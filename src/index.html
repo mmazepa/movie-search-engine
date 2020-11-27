@@ -31,7 +31,7 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container movies">
             <div ng-hide="MovieData.Search && MovieData.Search.Response !== 'True'"
                  class="col-md-12 alert alert-info">
                 <span class="glyphicon glyphicon-info-sign"></span>
@@ -45,12 +45,12 @@
                      data-title="{{ movie.Title }}"
                      data-link="http://www.imdb.com/title/{{ movie.imdbID }}"
                      data-alt="{{ movie.Title }}">
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <img ng-src="{{ movie.Poster }}"
                              title="{{ movie.Title }}"
                              on-error-src="assets/images/image-not-available.jpg">
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-md-9">
                         <span>{{ movie.Title }} ({{ movie.Year }})</span>
                         <button class="moreDetailsButton btn btn-primary"
                                 onclick="getModal(this)"

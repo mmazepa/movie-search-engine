@@ -20,12 +20,13 @@ html {
             div {
               &.form-group {
                 width: 98vw;
+                height: 7.5vh;
                 margin-left: auto;
                 margin-right: auto;
                 div {
                   input {
-                    height: 70px;
-                    font-size: 28px;
+                    height: 100%;
+                    font-size: 4.5vh;
                     background-color: lighten(@mainColor, 10%);
                     &:focus {
                       background-color: whitesmoke;
@@ -36,6 +37,9 @@ html {
             }
           }
         }
+      }
+      &.movies {
+        width: 90vw;
       }
       &.container {
         margin-top: 15px;
@@ -55,7 +59,8 @@ html {
             font-size: 2vw;
             div {
               img {
-                height: 15vw;
+                height: 20vw;
+                width: 16vw;
                 @media (max-width: 992px) {
                    height: auto;
                    width: 80vw;
@@ -104,6 +109,7 @@ html {
       overflow-y: initial !important;
       overflow-x: hidden;
       padding-top: 5vh;
+      font-size: 2.5vh;
       .modal-content {
         position: relative;
         background-color: #fefefe;
@@ -124,6 +130,10 @@ html {
           background: linear-gradient(90deg, @modalColor1, @modalColor2);
           color: white;
           text-align: center;
+          h2 {
+            font-size: 5vh;
+            text-shadow: 0.6vh 0.6vh 0.2vh black;
+          }
           span {
             &.close {
               color: #aaa;
