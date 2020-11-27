@@ -17,10 +17,14 @@
             <h3>Movie Search Engine</h3>
             <div class="row">
                 <div class="form-group">
-                    <div class="col-sm-12">
-                        <input type="name"
+                    <div class="col-sm-12 input-group input-group-lg">
+                        <span class="input-group-addon" id="sizing-addon1">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </span>
+                        <input type="text"
                                class="form-control"
                                placeholder="Enter movie name"
+                               aria-describedby="sizing-addon1"
                                ng-model="Search"
                                ng-keyup="GetMoviesData()">
                     </div>
@@ -54,6 +58,11 @@
                             <span class="glyphicon glyphicon-film"></span>
                             More details
                         </button>
+                        <span id="youtube">
+                            <a ng-href="https://www.youtube.com/results?search_query={{ movie.Title }}">
+                                Look on YouTube for videos related to this movie
+                            </a>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -68,15 +77,16 @@
                     </span>
                 </div>
                 <div class="container modal-body">
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <img ng-src="{{ SingleMovieData.Poster }}"
                              title="{{ SingleMovieData.Title }}"
                              on-error-src="assets/images/image-not-available.jpg">
-                        <a ng-href="https://www.imdb.com/title/{{ SingleMovieData.imdbID }}">
+                        <a id="imdbCheckLink"
+                           ng-href="https://www.imdb.com/title/{{ SingleMovieData.imdbID }}">
                             Check this movie on IMDb
                         </a>
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-6">
                         <span class="plot">{{ SingleMovieData.Plot }}</span>
                         <span><strong>Director:</strong> {{ SingleMovieData.Director }}</span>
                         <span><strong>Writer:</strong> {{ SingleMovieData.Writer }}</span>

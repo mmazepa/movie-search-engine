@@ -15,12 +15,25 @@ html {
         padding: 10px;
         overflow-x: hidden;
         border-bottom: 3px solid darken(@mainColor, 15%);
-        input {
-          height: 70px;
-          font-size: 28px;
-          background-color: lighten(@mainColor, 10%);
-          &:focus {
-            background-color: whitesmoke;
+        div {
+          &.row {
+            div {
+              &.form-group {
+                width: 98vw;
+                margin-left: auto;
+                margin-right: auto;
+                div {
+                  input {
+                    height: 70px;
+                    font-size: 28px;
+                    background-color: lighten(@mainColor, 10%);
+                    &:focus {
+                      background-color: whitesmoke;
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -58,9 +71,18 @@ html {
                 }
               }
               button {
-                margin-top: 15px;
-                width: 50vw;
-                font-size: 24px;
+                &.moreDetailsButton {
+                  margin-top: 15px;
+                  width: 50vw;
+                  font-size: 18px;
+                  span {
+                    display: inline;
+                  }
+                }
+              }
+              #youtube {
+                margin-top: 10px;
+                font-size: 14px;
                 span {
                   display: inline;
                 }
@@ -73,7 +95,7 @@ html {
     .modal {
       display: none;
       position: fixed;
-      z-index: 1;
+      z-index: 2;
       width: 100%;
       height: 100%;
       overflow: auto;
@@ -81,7 +103,7 @@ html {
       background-color: rgba(0,0,0,0.4);
       overflow-y: initial !important;
       overflow-x: hidden;
-      padding-top: 10vh;
+      padding-top: 5vh;
       .modal-content {
         position: relative;
         background-color: #fefefe;
@@ -119,9 +141,21 @@ html {
         .modal-body {
           padding: 10px 16px;
           overflow-y: auto;
+          width: 92.5vw;
+          @media (max-width: 992px) {
+            width: 100%;
+          }
           div {
+            a {
+              &#imdbCheckLink {
+                margin-top: 10px;
+                margin-bottom: 10px;
+                display: block;
+              }
+            }
             span {
               display: block;
+              margin-top: 10px;
               margin-bottom: 10px;
               &.plot {
                 font-style: italic;
