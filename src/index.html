@@ -17,13 +17,12 @@
             <div class="row">
                 <div class="form-group">
                     <div class="col-sm-12 input-group input-group-lg">
-                        <span class="input-group-addon" id="sizing-addon1">
+                        <span class="input-group-addon">
                             <span class="glyphicon glyphicon-search"></span>
                         </span>
                         <input type="text"
                                class="form-control"
                                placeholder="Enter movie name"
-                               aria-describedby="sizing-addon1"
                                ng-model="Search"
                                ng-keyup="GetMoviesData()">
                     </div>
@@ -49,7 +48,7 @@
                              title="{{ movie.Title }}"
                              on-error-src="assets/images/image-not-available.jpg">
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-8">
                         <span>{{ movie.Title }} ({{ movie.Year }})</span>
                         <button class="moreDetailsButton btn btn-primary"
                                 onclick="getModal(this)"
@@ -76,7 +75,7 @@
                     </span>
                 </div>
                 <div class="container modal-body">
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <img ng-src="{{ SingleMovieData.Poster }}"
                              title="{{ SingleMovieData.Title }}"
                              on-error-src="assets/images/image-not-available.jpg">
@@ -85,7 +84,7 @@
                             Check this movie on IMDb
                         </a>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-7">
                         <span class="plot">{{ SingleMovieData.Plot }}</span>
                         <span><strong>Director:</strong> {{ SingleMovieData.Director }}</span>
                         <span><strong>Writer:</strong> {{ SingleMovieData.Writer }}</span>

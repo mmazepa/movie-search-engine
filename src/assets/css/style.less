@@ -15,10 +15,13 @@ html {
         padding: 2.5vh;
         overflow-x: hidden;
         border-bottom: 3px solid darken(@mainColor, 15%);
+        height: 20vh;
         span {
           &#pageTitle {
-            font-size: 6vh;
             display: block;
+            font-size: 4vh;
+            font-weight: bold;
+            text-indent: 1.25vw;
           }
         }
         div {
@@ -26,17 +29,24 @@ html {
             div {
               &.form-group {
                 width: 95vw;
-                height: 7.5vh;
+                height: 5vh;
                 margin-left: auto;
                 margin-right: auto;
                 div {
+                  height: inherit;
                   input, span {
-                    height: 100%;
-                    font-size: 4.5vh;
                     background-color: lighten(@mainColor, 10%);
+                    height: 100%;
                     &:focus {
                       background-color: whitesmoke;
                     }
+                  }
+                  input {
+                    font-size: 3.5vh;
+                  }
+                  span {
+                    font-size: 3.0vh;
+                    line-height: 4.5vh;
                   }
                 }
               }
@@ -45,8 +55,8 @@ html {
         }
       }
       &.movies {
-        width: 90vw;
-        font-size: 3.75vh;
+        width: 75vw;
+        font-size: 3.0vh;
       }
       &.container {
         margin-top: 15px;
@@ -64,10 +74,16 @@ html {
             margin-bottom: 1vw;
             padding: 1vw;
             font-size: 2vw;
+            opacity: 0.7;
+            transition: 0.4s;
+            &:hover {
+              opacity: 1.0;
+              transition: 0.4s;
+            }
             div {
               img {
-                height: 20vw;
-                width: 16vw;
+                height: 15vw;
+                width: 12vw;
                 @media (max-width: 992px) {
                    height: auto;
                    width: 80vw;
@@ -115,14 +131,15 @@ html {
       background-color: rgba(0,0,0,0.85);
       overflow-y: initial !important;
       overflow-x: hidden;
-      font-size: 2.5vh;
+      font-size: 2.25vh;
+      padding-top: 2.5vh;
       .modal-content {
         position: relative;
         background-color: whitesmoke;
         margin: auto;
         padding: 0;
         border: 1px solid silver;
-        width: 80%;
+        width: 80vw;
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
         animation-name: animatetop;
         animation-duration: 0.4s;
@@ -176,8 +193,8 @@ html {
             }
             span {
               display: block;
-              margin-top: 10px;
-              margin-bottom: 10px;
+              margin-top: 1.5vh;
+              margin-bottom: 1.5vh;
               &.plot {
                 font-style: italic;
                 text-align: justify;
