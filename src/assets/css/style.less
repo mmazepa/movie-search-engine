@@ -12,19 +12,25 @@ html {
         color: whitesmoke;
         margin: 0 !important;
         width: 100%;
-        padding: 10px;
+        padding: 2.5vh;
         overflow-x: hidden;
         border-bottom: 3px solid darken(@mainColor, 15%);
+        span {
+          &#pageTitle {
+            font-size: 6vh;
+            display: block;
+          }
+        }
         div {
           &.row {
             div {
               &.form-group {
-                width: 98vw;
+                width: 95vw;
                 height: 7.5vh;
                 margin-left: auto;
                 margin-right: auto;
                 div {
-                  input {
+                  input, span {
                     height: 100%;
                     font-size: 4.5vh;
                     background-color: lighten(@mainColor, 10%);
@@ -40,6 +46,7 @@ html {
       }
       &.movies {
         width: 90vw;
+        font-size: 3.75vh;
       }
       &.container {
         margin-top: 15px;
@@ -79,7 +86,7 @@ html {
                 &.moreDetailsButton {
                   margin-top: 15px;
                   width: 50vw;
-                  font-size: 18px;
+                  font-size: 3.5vh;
                   span {
                     display: inline;
                   }
@@ -87,7 +94,7 @@ html {
               }
               #youtube {
                 margin-top: 10px;
-                font-size: 14px;
+                font-size: 2.5vh;
                 span {
                   display: inline;
                 }
@@ -105,17 +112,16 @@ html {
       height: 100%;
       overflow: auto;
       background-color: rgb(0,0,0);
-      background-color: rgba(0,0,0,0.4);
+      background-color: rgba(0,0,0,0.85);
       overflow-y: initial !important;
       overflow-x: hidden;
-      padding-top: 5vh;
       font-size: 2.5vh;
       .modal-content {
         position: relative;
-        background-color: #fefefe;
+        background-color: whitesmoke;
         margin: auto;
         padding: 0;
-        border: 1px solid #888;
+        border: 1px solid silver;
         width: 80%;
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
         animation-name: animatetop;
@@ -130,17 +136,22 @@ html {
           background: linear-gradient(90deg, @modalColor1, @modalColor2);
           color: white;
           text-align: center;
-          h2 {
-            font-size: 5vh;
-            text-shadow: 0.6vh 0.6vh 0.2vh black;
+          border-top-left-radius: 5.75px;
+          border-top-right-radius: 5.75px;
+          span {
+            &#mainTitle {
+              font-size: 5vh;
+              text-shadow: 0.6vh 0.6vh 0.2vh black;
+              display: block;
+            }
           }
           span {
             &.close {
-              color: #aaa;
+              color: lighten(@mainColor, 5%);
               float: right;
-              font-size: 28px;
+              font-size: 5vh;
               font-weight: bold;
-              &.close:hover, &.close:focus {
+              &:hover, &:focus {
                 color: black;
                 text-decoration: none;
                 cursor: pointer;

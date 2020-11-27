@@ -7,14 +7,13 @@
         <link rel="stylesheet" href="assets/css/style.css">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
         <script src="assets/js/movie-app-controller.js"></script>
     </head>
     <body ng-controller="MovieAppCtrl">
         <div class="container header">
-            <h3>Movie Search Engine</h3>
+            <span id="pageTitle">Movie Search Engine</span>
             <div class="row">
                 <div class="form-group">
                     <div class="col-sm-12 input-group input-group-lg">
@@ -71,7 +70,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <span class="close">&times;</span>
-                    <h2>{{ SingleMovieData.Title }} ({{ SingleMovieData.Year }})</h2>
+                    <span id="mainTitle">{{ SingleMovieData.Title }} ({{ SingleMovieData.Year }})</span>
                     <span>
                         {{ SingleMovieData.Runtime }} | {{ SingleMovieData.Genre }} | {{ SingleMovieData.Released }}
                     </span>
