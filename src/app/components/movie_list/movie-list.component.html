@@ -1,0 +1,15 @@
+<div>
+    <div *ngIf="movies">
+        <div *ngIf="movies.Response === 'True'">
+            <div *ngFor="let movie of movies.Search">
+                {{movie.Title}}
+            </div>
+        </div>
+        <div *ngIf="movies.Response === 'False'">
+            Something went wrong.
+        </div>
+    </div>
+    <div *ngIf="!movies">
+        No movie found.
+    </div>
+</div>
