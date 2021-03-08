@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
+import { AfterViewInit, Component } from '@angular/core';
+import { MovieList } from 'src/app/models/movie-list.model';
 import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
@@ -8,13 +7,25 @@ import { MoviesService } from 'src/app/services/movies.service';
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.scss']
 })
-export class MovieListComponent implements OnInit {
+export class MovieListComponent implements AfterViewInit {
+
+    movies: MovieList;
 
     constructor(
         private moviesService: MoviesService
     ) { }
 
-    ngOnInit() {
-        console.log(this.moviesService.getMovies());
+    ngAfterViewInit() {
+        this.getMovies();
+    }
+
+    getMovies() {
+        this.moviesService.getMovies()
+            .subscribe(result => {
+                this.movies = result;
+                console.log(result);
+            }, error => {
+                console.log(error);
+            });
     }
 }

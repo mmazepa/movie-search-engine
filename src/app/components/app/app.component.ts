@@ -7,5 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'movie-search-engine';
-  content = 'Hello world!';
 }
